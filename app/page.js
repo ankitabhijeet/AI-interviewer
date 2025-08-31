@@ -41,13 +41,8 @@ export default function Home() {
       {/* Header */}
       <header className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-                <Mic className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold text-black">InterviewAI</span>
-            </div>
+          <div className="flex justify-end items-center py-6">
+           
             <button
               onClick={handleGetStarted}
               className="bg-black text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors duration-200 font-medium"
@@ -169,22 +164,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-100 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <div className="w-6 h-6 bg-black rounded-md flex items-center justify-center">
-                <Mic className="w-4 h-4 text-white" />
-              </div>
-              <span className="font-semibold text-black">InterviewAI</span>
-            </div>
-            <p className="text-gray-600 text-sm">
-              © 2025 InterviewAI. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+     
     </div>
   );
 }
