@@ -1,102 +1,189 @@
-import Image from "next/image";
+"use client";
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import { ArrowRight, Mic, Brain, Target, CheckCircle } from 'lucide-react';
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const router = useRouter();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const handleGetStarted = () => {
+    router.push('/dashboard');
+  };
+
+  const features = [
+    {
+      icon: <Mic className="w-8 h-8" />,
+      title: "Voice Recognition",
+      description: "Advanced speech-to-text technology captures your responses accurately"
+    },
+    {
+      icon: <Brain className="w-8 h-8" />,
+      title: "AI-Powered Feedback",
+      description: "Get intelligent analysis and personalized improvement suggestions"
+    },
+    {
+      icon: <Target className="w-8 h-8" />,
+      title: "Targeted Practice",
+      description: "Practice with industry-specific questions tailored to your field"
+    }
+  ];
+
+  const benefits = [
+    "Realistic interview simulation",
+    "Instant feedback and scoring",
+    "Improve communication skills",
+    "Build confidence",
+    "Track your progress"
+  ];
+
+  return (
+    <div className="min-h-screen bg-white text-gray-900">
+      {/* Header */}
+      <header className="bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-6">
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
+                <Mic className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-xl font-bold text-black">InterviewAI</span>
+            </div>
+            <button
+              onClick={handleGetStarted}
+              className="bg-black text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors duration-200 font-medium"
+            >
+              Get Started
+            </button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-b from-gray-50 to-white py-20 lg:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl lg:text-6xl font-bold text-black mb-6 leading-tight">
+              Master Your
+              <span className="block text-gray-600">Interview Skills</span>
+            </h1>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+              Practice with AI-powered mock interviews. Get real-time feedback, 
+              improve your responses, and land your dream job with confidence.
+            </p>
+            <button
+              onClick={handleGetStarted}
+              className="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition-all duration-300 font-semibold text-lg flex items-center gap-2 mx-auto group"
+            >
+              Get Started Now
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-black mb-4">
+              Why Choose InterviewAI?
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Our advanced AI technology provides personalized interview practice 
+              that adapts to your needs and helps you succeed.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+            {features.map((feature, index) => (
+              <div key={index} className="text-center group">
+                <div className="bg-gray-100 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-black group-hover:text-white transition-all duration-300">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-black mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl lg:text-4xl font-bold text-black mb-6">
+                Transform Your Interview Performance
+              </h2>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Practice makes perfect. Our AI-powered platform helps you identify 
+                areas for improvement and builds the confidence you need to excel 
+                in any interview situation.
+              </p>
+              <ul className="space-y-4">
+                {benefits.map((benefit, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-black flex-shrink-0" />
+                    <span className="text-gray-700">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-black rounded-2xl p-8 lg:p-12">
+              <div className="text-center text-white">
+                <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center mx-auto mb-6">
+                  <Brain className="w-10 h-10 text-black" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Smart Analysis</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  Our AI analyzes your responses in real-time, providing detailed 
+                  feedback on content, delivery, and areas for improvement.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-black text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+            Ready to Ace Your Next Interview?
+          </h2>
+          <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+            Join thousands of professionals who have improved their interview skills with InterviewAI.
+          </p>
+          <button
+            onClick={handleGetStarted}
+            className="bg-white text-black px-8 py-4 rounded-lg hover:bg-gray-100 transition-all duration-300 font-semibold text-lg flex items-center gap-2 mx-auto group"
+          >
+            Start Practicing Today
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-100 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center space-x-2 mb-4 md:mb-0">
+              <div className="w-6 h-6 bg-black rounded-md flex items-center justify-center">
+                <Mic className="w-4 h-4 text-white" />
+              </div>
+              <span className="font-semibold text-black">InterviewAI</span>
+            </div>
+            <p className="text-gray-600 text-sm">
+              © 2025 InterviewAI. All rights reserved.
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
   );
